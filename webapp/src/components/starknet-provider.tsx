@@ -1,7 +1,8 @@
 "use client";
 import { ReactNode } from "react";
 
-import { mainnet } from "@starknet-react/chains";
+import { sepolia } from "@starknet-react/chains";
+//import { mainnet } from "@starknet-react/chains";
 import {
   StarknetConfig,
   argent,
@@ -23,7 +24,7 @@ export function StarknetProvider({ children }: { children: ReactNode }) {
 
   return (
     <StarknetConfig
-      chains={[mainnet]}
+      chains={[sepolia]}
       provider={publicProvider()}
       connectors={connectors}
       explorer={voyager}
