@@ -1,3 +1,5 @@
+export const address = "0x008631ffba4fe3ea377edd7819ffc6c16205ee408859791c004cbacafafa167b"
+                        
 export const abi = [
   {
     "type": "impl",

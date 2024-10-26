@@ -1,8 +1,19 @@
 import React from 'react';
 import { Button } from '../ui/Button';
+import { useContractRead } from "@starknet-react/core";
+import {abi,address} from "../../abi/HelloStarknet"
 
 function ReadContract() {
   const [contractData, setContractData] = React.useState('');
+
+  const {data, isError, isLoading, error} = useContractRead({
+    functionName: "get_balance",
+    args: [],
+    abi,
+    address,
+    watch: true
+
+  });
 
   const handleReadContract = () => {
     // Simulating a contract read operation
@@ -16,7 +27,7 @@ function ReadContract() {
         <Button onClick={handleReadContract}>Read Contract</Button>
         <div className="flex items-center justify-between w-full">
           <span className="text-lg">Contract Data:</span>
-          <span className="text-xl font-semibold">{contractData || '-'}</span>
+          <span className="text-xl font-semibold">{data?.toString() || '-'}</span>
         </div>
       </div>
     </div>
